@@ -9,6 +9,7 @@ const NUM_ROLLS = 3;
 class Game extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       dice: Array.from({ length: NUM_DICE }),
       locked: Array(NUM_DICE).fill(false),
@@ -29,7 +30,9 @@ class Game extends Component {
         chance: undefined
       }
     };
+
     this.roll = this.roll.bind(this);
+    this.toggleLocked = this.toggleLocked.bind(this);
     this.doScore = this.doScore.bind(this);
   }
 
@@ -70,7 +73,6 @@ class Game extends Component {
       <div className='Game'>
         <header className='Game-header'>
           <h1 className='App-title'>Yahtzee!</h1>
-
           <section className='Game-dice-section'>
             <Dice
               dice={this.state.dice}
